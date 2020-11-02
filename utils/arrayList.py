@@ -3,8 +3,8 @@ File: arrayList.py
 Author: YOUR NAME GOES HERE
 """
 
-from .arrays import Array
-from .abstractList import AbstractList
+from arrays import Array
+from abstractList import AbstractList
 
 class ArrayList(AbstractList):
     """Represents an array-based list."""
@@ -90,12 +90,12 @@ class ArrayList(AbstractList):
         self._resize()
         self.incModCount()
         return item
-    
-    
+
+
 
     def listIterator(self):
         return ArrayList.ListIterator(self)
-    
+
 
     class ListIterator(object):
         """Represents a list iterator."""
@@ -130,7 +130,7 @@ class ArrayList(AbstractList):
             self._lastItemPos = self._cursor
             self._cursor += 1
             return self._backingStore[self._lastItemPos]
-           
+
         def last(self):
             """Moves the cursor to the end of the backing store."""
             self._cursor = len(self._backingStore)
@@ -163,7 +163,7 @@ class ArrayList(AbstractList):
             self._backingStore[self._lastItemPos] = item
             self._lastItemPos = -1
 
-        def insert(self, item):         
+        def insert(self, item):
             """Preconditions:
             The list has not been modified except by this iterator's mutators.
             Adds item to the end if the current position is undefined, or
@@ -177,7 +177,7 @@ class ArrayList(AbstractList):
                 self._lastItemPos = -1
             self._modCount += 1
 
-        def remove(self):         
+        def remove(self):
             """Preconditions: the current position is defined.
             The list has not been modified except by this iterator's mutators.
             Pops the item at the current position."""
@@ -191,4 +191,3 @@ class ArrayList(AbstractList):
                 self._cursor -= 1
             self._modCount += 1
             self._lastItemPos = -1
-
