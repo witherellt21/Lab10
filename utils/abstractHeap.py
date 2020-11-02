@@ -7,6 +7,7 @@ class AbstractHeap(AbstractCollection):
 
    def _getRoot(self):
       """Should return the way to access the root based on an implementation."""
+      '''
       curPos = len(self) - 1
 
       while curPos > 0:
@@ -14,7 +15,8 @@ class AbstractHeap(AbstractCollection):
          parentItem = self._heap[parent]
          if parentItem <= item:
             break
-
+      '''
+      return 0
       #raise NotImplementedError("Abstract class method invoked.")
 
    def _getParent(self, index):
@@ -31,7 +33,7 @@ class AbstractHeap(AbstractCollection):
 
    def _getData(self, index):
       """Returns the data from the index or node."""
-      raise NotImplementedError("Abstract class method invoked.")
+      return self._heap[index]
 
    def _insideTree(self, node):
         """Returns True if the index or node is within the tree."""
@@ -53,7 +55,7 @@ class AbstractHeap(AbstractCollection):
       def recurse(index, level):
          s = ""
          if self._insideTree(index):
-            print('hi')
+            #print('hi')
             s += recurse(self._getRightChild(index), level + 1)
             s += "| " * level
             s += str(self._getData(index)) + "\n"
