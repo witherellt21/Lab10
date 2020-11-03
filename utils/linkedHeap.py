@@ -21,15 +21,15 @@ class LinkedHeap(AbstractHeap):
    def _getRoot(self):
       """Helper for AbstractHeap"""
       return self._heap
-   
+
    def _getParent(self, node):
       """Helper for AbstractHeap"""
       return node.parent
-   
+
    def _getLeftChild(self, node):
       """Helper for AbstractHeap"""
       return node.left
-   
+
    def _getRightChild(self, node):
       """Helper for AbstractHeap"""
       return node.right
@@ -55,14 +55,14 @@ class LinkedHeap(AbstractHeap):
          parent.data = placeholder
          current_node = parent
          parent = current_node.parent
-   
+
    def _walkDown(self, node):
       """Walks node's data upwards through its children while
          it is larger than a child."""
       current_node = node
       min_child = node.left
       while min_child:
-         
+
          if current_node.right and current_node.right.data < min_child.data:
             min_child = current_node.right
 
@@ -75,7 +75,7 @@ class LinkedHeap(AbstractHeap):
             min_child = current_node.left
 
          else:break
-         
+
 
    def add(self, item):
       """Adds item to the end of the array and then walks it up to the top,
@@ -179,9 +179,4 @@ class LinkedHeap(AbstractHeap):
             path.append("right")
 
       # Return list of directions
-<<<<<<< HEAD
       return path
-=======
-      return path
-
->>>>>>> b40e4c835e7f411471d86af2a55f1232a65cabf3
