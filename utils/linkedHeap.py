@@ -179,9 +179,4 @@ class LinkedHeap(AbstractHeap):
             path.append("right")
 
       # Return list of directions
-<<<<<<< HEAD
       return path
-=======
-      return path
-
->>>>>>> b40e4c835e7f411471d86af2a55f1232a65cabf3
