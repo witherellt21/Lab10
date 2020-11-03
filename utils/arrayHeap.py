@@ -1,10 +1,10 @@
 """
 File: arrayHeap.py
-YOUR NAME GOES HERE.
+Taylor Witherell
 """
 
-from arrayList import ArrayList
-from abstractHeap import AbstractHeap
+from .arrayList import ArrayList
+from .abstractHeap import AbstractHeap
 
 
 class ArrayHeap(AbstractHeap):
@@ -16,6 +16,31 @@ class ArrayHeap(AbstractHeap):
       """Initialization of a heap."""
       self._heap = ArrayList()
       super().__init__(sourceCollection)
+
+
+   def _getRoot(self):
+      return 0
+
+   def _getParent(self, index):
+      """Returns access to the parent from the index or node."""
+      return (index - 1) // 2
+
+   def _getLeftChild(self, index):
+      """Returns access to the left child from the index or node."""
+      return 2 * index + 1
+
+   def _getRightChild(self, index):
+      """Returns access to the right child from the index or node."""
+      return (2 * index) + 2
+
+   def _getData(self, index):
+      """Returns the data from the index or node."""
+      return self._heap[index]
+
+   def _insideTree(self, node):
+        """Returns True if the index or node is within the tree."""
+        if node != None:
+            return node < len(self)
 
    def add(self, item):
       """Adds item to the end of the array and then walks it up to the top,
@@ -83,24 +108,3 @@ class ArrayHeap(AbstractHeap):
             curPos = maxChild
 
       return topItem
-
-   '''
-   def __str__(self):
-      """Returns a string representation with the tree rotated
-         90 degrees counterclockwise."""
-      def recurse(index, level):
-         s = ""
-         if index < len(self):
-            s += recurse(index * 2 + 2, level + 1)
-            s += "| " * level
-            s += str(self._heap[index]) + "\n"
-            s += recurse(index * 2 + 1, level + 1)
-         return s
-      return recurse(0, 0)
-   '''
-
-lyst = [1, 2, 7, 4, 9, 3]
-
-heap = ArrayHeap(lyst)
-
-print(heap)

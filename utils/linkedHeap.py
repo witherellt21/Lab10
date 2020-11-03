@@ -1,12 +1,13 @@
 """
 File: linkedHeap.py
-YOUR NAME GOES HERE.
+Taylor Witherell
 """
 
 
 from .abstractHeap import AbstractHeap
 from .bstNode import BSTNode
 import math
+import time
 
 
 class LinkedHeap(AbstractHeap):
@@ -19,53 +20,62 @@ class LinkedHeap(AbstractHeap):
 
    def _getRoot(self):
       """Helper for AbstractHeap"""
-
+      return self._heap
+   
    def _getParent(self, node):
       """Helper for AbstractHeap"""
-
+      return node.parent
+   
    def _getLeftChild(self, node):
       """Helper for AbstractHeap"""
-
+      return node.left
+   
    def _getRightChild(self, node):
       """Helper for AbstractHeap"""
+      return node.right
 
    def _getData(self, node):
       """Helper for AbstractHeap"""
+      return node.data
 
    def _insideTree(self, node):
       """Helper for AbstractHeap"""
+      return node != None
 
 
    def _walkUp(self, node):
       """Walks node's data upwards through its parents while
          it is smaller than the parent."""
-      pass
-
+      current_node = node
+      parent = node.parent
+      while parent and current_node.data < parent.data:
+         #print(parent.data)
+         placeholder = current_node.data
+         current_node.data = parent.data
+         parent.data = placeholder
+         current_node = parent
+         parent = current_node.parent
+   
    def _walkDown(self, node):
-        """Walks node's data upwards through its children while
-        it is larger than a child."""
-        while node != None:
-            if node.left == None:
-                newnode = node.left
-                node.left = node
-                node = newnode
-                break
-            elif node.right == None:
-                newnode = node.right
-                node.right = node
-                node = newnode
-                break
-            elif node.data <= node.left.data:
-                newnode = node.left
-                node.left = node
-                node = newnode
-            elif node.data <= node.right.data:
-                newnode = node.right
-                node.right = node
-                node = newnode
+      """Walks node's data upwards through its children while
+         it is larger than a child."""
+      current_node = node
+      min_child = node.left
+      while min_child:
+         
+         if current_node.right and current_node.right.data < min_child.data:
+            min_child = current_node.right
 
+         if current_node.data > min_child.data:
+            placeholder = current_node.data
+            current_node.data = min_child.data
+            min_child.data = placeholder
 
+            current_node = min_child
+            min_child = current_node.left
 
+         else:break
+         
 
    def add(self, item):
       """Adds item to the end of the array and then walks it up to the top,
@@ -169,5 +179,9 @@ class LinkedHeap(AbstractHeap):
             path.append("right")
 
       # Return list of directions
+<<<<<<< HEAD
+      return path
+=======
       return path
 
+>>>>>>> b40e4c835e7f411471d86af2a55f1232a65cabf3

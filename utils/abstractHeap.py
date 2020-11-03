@@ -1,44 +1,16 @@
-from abstractCollection import AbstractCollection
+"""
+File: abstractHeap.py
+Author: Taylor Witherell
+
+Common data and method implementations for lists.
+"""
+
+from .abstractCollection import AbstractCollection
 
 class AbstractHeap(AbstractCollection):
    """An abstract approach to __str__ for binary tree shapes"""
    def __init__(self, sourceCollection):
       super().__init__(sourceCollection)
-
-   def _getRoot(self):
-      """Should return the way to access the root based on an implementation."""
-      '''
-      curPos = len(self) - 1
-
-      while curPos > 0:
-         parent = (curPos - 1) // 2
-         parentItem = self._heap[parent]
-         if parentItem <= item:
-            break
-      '''
-      return 0
-      #raise NotImplementedError("Abstract class method invoked.")
-
-   def _getParent(self, index):
-      """Returns access to the parent from the index or node."""
-      return index // 2
-
-   def _getLeftChild(self, index):
-      """Returns access to the left child from the index or node."""
-      return 2 * index
-
-   def _getRightChild(self, index):
-      """Returns access to the right child from the index or node."""
-      return (2 * index) + 1
-
-   def _getData(self, index):
-      """Returns the data from the index or node."""
-      return self._heap[index]
-
-   def _insideTree(self, node):
-        """Returns True if the index or node is within the tree."""
-        if node != None:
-            return node < len(self)
 
    def add(self, item):
       """To be implemented in an implementation."""
@@ -55,7 +27,7 @@ class AbstractHeap(AbstractCollection):
       def recurse(index, level):
          s = ""
          if self._insideTree(index):
-            #print('hi')
+            print("\n\n\n index = ", index, "\n\n\n")
             s += recurse(self._getRightChild(index), level + 1)
             s += "| " * level
             s += str(self._getData(index)) + "\n"

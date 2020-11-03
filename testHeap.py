@@ -1,6 +1,6 @@
 """
 File: testHeap.py
-YOUR NAME GOES HERE.
+Taylor Witherell.
 """
 
 
@@ -33,5 +33,5 @@ def main(heapType):
    print("Heap size, expect 0:", len(hp))
 
 if __name__ == '__main__':
-   main(ArrayHeap)
-   #main(LinkedHeap)
+   #main(ArrayHeap)
+   main(LinkedHeap)

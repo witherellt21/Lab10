@@ -1,11 +1,11 @@
 """
-File: abstractlist.py
-Author: YOUR NAME GOES HERE
+File: abstractList.py
+Author: Taylor Witherell
 
 Common data and method implementations for lists.
 """
 
-from abstractCollection import AbstractCollection
+from .abstractCollection import AbstractCollection
 
 class AbstractList(AbstractCollection):
     """Represents an abstract list."""

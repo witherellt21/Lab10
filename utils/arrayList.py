@@ -3,8 +3,8 @@ File: arrayList.py
 Author: YOUR NAME GOES HERE
 """
 
-from arrays import Array
-from abstractList import AbstractList
+from .arrays import Array
+from .abstractList import AbstractList
 
 class ArrayList(AbstractList):
     """Represents an array-based list."""
