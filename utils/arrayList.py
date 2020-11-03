@@ -1,6 +1,6 @@
 """
 File: arrayList.py
-Author: YOUR NAME GOES HERE
+Author: Taylor Witherell
 """
 
 from .arrays import Array

@@ -1,6 +1,6 @@
 """
 File: abstractCollection.py
-Author: YOUR NAME GOES HERE
+Author: Taylor Witherell
 """
 
 class AbstractCollection(object):
